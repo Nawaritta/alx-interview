@@ -4,8 +4,12 @@
 
 def canUnlockAll(boxes):
     """Returns true if all the boxes are opened and false otherwise"""
+
     opened = [0]
     n = len(boxes)
+
+    if n <= 1:
+        return True
 
     for box in opened:
         for key in boxes[box]:
