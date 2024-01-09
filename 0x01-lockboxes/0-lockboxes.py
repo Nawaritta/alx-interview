@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""This Module contains canUnlockall function"""
+
 
 def canUnlockAll(boxes):
+    """Returns true if all the boxes are opened and false otherwise"""
     opened = [0]
     n = len(boxes)
 
@@ -13,4 +16,3 @@ def canUnlockAll(boxes):
                     return True
 
     return False
-
