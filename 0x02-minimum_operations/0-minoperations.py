@@ -10,7 +10,7 @@ def minOperations(n):
     nh = 1
     copied = 0
 
-    while (nh != n):
+    while (nh < n):
         if (n % nh == 0):
             count += 2
             copied = nh
