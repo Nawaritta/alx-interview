@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 """This module contains compute metrics function"""
 
-
 def print_stats(size, status_codes):
     """Reads from standard input and computes metrics"""
     print("File size: {}".format(size))
     for key in sorted(status_codes):
         print("{}: {}".format(key, status_codes[key]))
-
 
 def parse_line(line, status_codes):
     """Parses the line"""
@@ -29,7 +27,6 @@ def parse_line(line, status_codes):
 
     return size
 
-
 if __name__ == "__main__":
     import sys
 
@@ -45,7 +42,7 @@ if __name__ == "__main__":
                 count = 1
             else:
                 count += 1
-            print_stats(size, status_codes)
+        print_stats(size, status_codes)
 
     except KeyboardInterrupt:
         print_stats(size, status_codes)
