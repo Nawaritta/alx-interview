@@ -6,6 +6,7 @@ def validUTF8(data):
     """Return: True if data is a valid UTF-8 encoding, else return False"""
 
     def num_following_bytes(byte):
+        """checks the number of following bytes for a given starting byte"""
         if (byte & 0b11110000) == 0b11110000:
             return 3
         elif (byte & 0b11100000) == 0b11100000:
