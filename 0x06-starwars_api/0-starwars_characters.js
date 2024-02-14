@@ -9,11 +9,16 @@ function getMovieCharacters(movieId) {
     axios.get(url)
         .then(response => {
             const characters = response.data.characters;
-            characters.forEach(characterUrl => {
-                axios.get(characterUrl)
-                    .then(response => {
-                        console.log(response.data.name);
-                    });
+            const characterPromises = characters.map(characterUrl => {
+                return axios.get(characterUrl)
+                    .then(response => response.data.name);
+            });
+
+            return Promise.all(characterPromises);
+        })
+        .then(characterNames => {
+            characterNames.forEach(name => {
+                console.log(name);
             });
         });
 }
