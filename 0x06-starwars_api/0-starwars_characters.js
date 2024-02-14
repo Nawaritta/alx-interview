@@ -11,7 +11,8 @@ function getMovieCharacters(movieId) {
             const characters = response.data.characters;
             const characterPromises = characters.map(characterUrl => {
                 return axios.get(characterUrl)
-                    .then(response => response.data.name);
+                    .then(response => response.data.name)
+                    .catch(error => `Not found`);
             });
 
             return Promise.all(characterPromises);
@@ -20,6 +21,9 @@ function getMovieCharacters(movieId) {
             characterNames.forEach(name => {
                 console.log(name);
             });
+        })
+        .catch(error => {
+            console.log(`Not found`);
         });
 }
 
