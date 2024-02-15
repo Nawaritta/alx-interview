@@ -23,7 +23,8 @@ function getMovieCharacters(movieId) {
             });
         })
         .catch(error => {
-            console.log(`Not found`);
+            console.log(`Error: ${error.message}`);
+            process.exit(1);
         });
 }
 
