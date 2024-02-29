@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module contains makeChange(coins, total) function"""
 
+
 def makeChange(coins, total):
     """Returns the minimum number of coins to meet a given amount total"""
 
@@ -21,5 +22,3 @@ def makeChange(coins, total):
     if change == total:
         return count
     return -1
-
-
