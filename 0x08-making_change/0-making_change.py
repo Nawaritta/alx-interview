@@ -8,7 +8,6 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
     coins.sort(reverse=True)
-    # coef = [0] * len(coins)
     change = 0
     count = 0
     i = 0
