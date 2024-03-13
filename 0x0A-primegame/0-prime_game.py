@@ -25,6 +25,8 @@ def isWinner(x, nums):
     count = 0
     score = {"Maria": 0, "Ben": 0}
     i = 1
+    if x == 0:
+        return None
 
     while i < nums[-1] + 1:
 
