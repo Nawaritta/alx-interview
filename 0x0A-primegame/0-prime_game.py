@@ -24,7 +24,7 @@ def isWinner(x, nums):
     cursor = 0
     count = 0
     score = {"Maria": 0, "Ben": 0}
-    i = 0
+    i = 1
     if x > len(nums) or x < 1 or not nums:
         return None
 
@@ -37,13 +37,16 @@ def isWinner(x, nums):
 
             if count % 2 == 0:
                 score["Ben"] += 1
+                # print("Ben: ", i)
             else:
                 score["Maria"] += 1
+                # print("Maria: ", i)
             cursor += 1
             if cursor == x:
                 break
         else:
             i += 1
+    # print(score)
 
     if score["Maria"] > score["Ben"]:
         return "Maria"
