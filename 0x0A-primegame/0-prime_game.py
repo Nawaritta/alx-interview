@@ -28,6 +28,10 @@ def isWinner(x, nums):
     if x > len(nums) or x < 1 or not nums:
         return None
 
+    while nums[cursor] == 0:
+        cursor += 1
+        if cursor == x:
+            break
     i = 1
     while i <= nums[-1]:
 
