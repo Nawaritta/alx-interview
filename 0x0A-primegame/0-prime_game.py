@@ -24,14 +24,16 @@ def isWinner(x, nums):
     cursor = 0
     count = 0
     score = {"Maria": 0, "Ben": 0}
-    i = 0
+
     if x > len(nums) or x < 1 or not nums:
         return None
 
+    while nums[cursor] == 0:
+        cursor += 1
+        if cursor == x:
+            break
+    i = 1
     while i <= nums[-1]:
-        if nums[cursor] == 0:
-            cursor += 1
-            continue
 
         if is_prime(i):
             count += 1
@@ -47,7 +49,6 @@ def isWinner(x, nums):
                 break
         else:
             i += 1
-    # print(score)
 
     if score["Maria"] > score["Ben"]:
         return "Maria"
