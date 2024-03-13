@@ -24,11 +24,11 @@ def isWinner(x, nums):
     cursor = 0
     count = 0
     score = {"Maria": 0, "Ben": 0}
-    i = 1
-    if x == 0:
+    i = 0
+    if x > len(nums):
         return None
 
-    while i < nums[-1] + 1:
+    while i <= nums[-1]:
 
         if is_prime(i):
             count += 1
