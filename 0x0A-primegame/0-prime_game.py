@@ -2,53 +2,36 @@
 """This module contains isWinner function"""
 
 
-def is_prime(number):
-    if number <= 1:
-        return False
-    elif number <= 3:
-        return True
-    elif number % 2 == 0 or number % 3 == 0:
-        return False
-    i = 5
-    while i * i <= number:
-        if number % i == 0 or number % (i + 2) == 0:
-            return False
-        i += 6
-    return True
+def count_primes(n):
+    is_prime = [True] * (n+1)
+    count = 0
+
+    for num in range(2, int(n**0.5)+1):
+        if is_prime[num]:
+            count += 1
+            for multiple in range(num*num, n+1, num):
+                is_prime[multiple] = False
+
+    for num in range(int(n**0.5)+1, n+1):
+        if is_prime[num]:
+            count += 1
+
+    return count
 
 
 def isWinner(x, nums):
     """ determines the winner of a game of prime numbers."""
 
-    nums.sort()
-    cursor = 0
-    count = 0
     score = {"Maria": 0, "Ben": 0}
 
     if x > len(nums) or x < 1 or not nums:
         return None
 
-    while nums[cursor] == 0:
-        cursor += 1
-        if cursor == x:
-            break
-    i = 1
-    while i <= nums[-1]:
-
-        if is_prime(i):
-            count += 1
-
-        if i == nums[cursor]:
-
-            if count % 2 == 0:
-                score["Ben"] += 1
-            else:
-                score["Maria"] += 1
-            cursor += 1
-            if cursor == x:
-                break
+    for i in nums:
+        if count_primes(i) % 2 == 0:
+            score["Ben"] += 1
         else:
-            i += 1
+            score["Maria"] += 1
 
     if score["Maria"] > score["Ben"]:
         return "Maria"
